@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{iris}\PYG{o}{.}\PYG{n}{tab} \PYG{n}{data} \PYG{o+ow}{in} \PYG{n+nb}{set}\PYG{p}{:}
+  \PYG{k}{for} \PYG{n}{each} \PYG{n}{pair} \PYG{o+ow}{in} \PYG{n}{labels}\PYG{p}{:}
+\end{Verbatim}

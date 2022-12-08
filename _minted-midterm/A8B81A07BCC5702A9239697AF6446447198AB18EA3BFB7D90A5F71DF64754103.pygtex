@@ -1,0 +1,194 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{copy} \PYG{k+kn}{import} \PYG{n}{copy}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{c+c1}{\PYGZsh{}random.seed(1)}
+
+\PYG{k}{class} \PYG{n+nc}{Node}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Node Attributes}
+\PYG{l+s+sd}{        ig: Information gain}
+\PYG{l+s+sd}{        feature\PYGZus{}val: (i.e. \PYGZsq{}x\PYGZsq{}, \PYGZsq{}o\PYGZsq{}, or \PYGZsq{}b\PYGZsq{})}
+\PYG{l+s+sd}{        feature\PYGZus{}index: [0\PYGZhy{}8]}
+\PYG{l+s+sd}{        parent: parent Node}
+\PYG{l+s+sd}{        leaf\PYGZus{}val: True or False or None}
+\PYG{l+s+sd}{        x: \PYGZsq{}x\PYGZsq{} child}
+\PYG{l+s+sd}{        o: \PYGZsq{}o\PYGZsq{} child}
+\PYG{l+s+sd}{        b: \PYGZsq{}b\PYGZsq{} child}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{ig}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{feature\PYGZus{}index}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{leaf\PYGZus{}val}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{):}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ig} \PYG{o}{=} \PYG{n}{ig}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}index} \PYG{o}{=} \PYG{n}{feature\PYGZus{}index}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}val} \PYG{o}{=} \PYG{n}{feature\PYGZus{}val}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{parent} \PYG{o}{=} \PYG{n}{parent}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{leaf\PYGZus{}val} \PYG{o}{=} \PYG{n}{leaf\PYGZus{}val}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x} \PYG{o}{=} \PYG{k+kc}{None}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b} \PYG{o}{=} \PYG{k+kc}{None}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o} \PYG{o}{=} \PYG{k+kc}{None}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}max\PYGZus{}depth}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n}{depths} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{p}{:}
+            \PYG{n}{depths}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{o}{.}\PYG{n}{get\PYGZus{}max\PYGZus{}depth}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{p}{:}
+            \PYG{n}{depths}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{o}{.}\PYG{n}{get\PYGZus{}max\PYGZus{}depth}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{p}{:}
+            \PYG{n}{depths}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{.}\PYG{n}{get\PYGZus{}max\PYGZus{}depth}\PYG{p}{()}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{depths}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{predict}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{):}
+        \PYG{n}{output} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{x}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{])}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}index} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+            \PYG{n}{index} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}index}
+            \PYG{n}{x\PYGZus{}rows} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[:,} \PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+            \PYG{n}{o\PYGZus{}rows} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[:,} \PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+            \PYG{n}{b\PYGZus{}rows} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[:,} \PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+            \PYG{n}{output}\PYG{p}{[}\PYG{n}{x\PYGZus{}rows}\PYG{p}{]} \PYG{o}{*=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{x\PYGZus{}rows}\PYG{p}{])}
+            \PYG{n}{output}\PYG{p}{[}\PYG{n}{o\PYGZus{}rows}\PYG{p}{]} \PYG{o}{*=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{o\PYGZus{}rows}\PYG{p}{])}
+            \PYG{n}{output}\PYG{p}{[}\PYG{n}{b\PYGZus{}rows}\PYG{p}{]} \PYG{o}{*=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{b\PYGZus{}rows}\PYG{p}{])}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{leaf\PYGZus{}val} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+            \PYG{n}{output} \PYG{o}{*=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{leaf\PYGZus{}val}
+        \PYG{k}{return} \PYG{n}{output}
+
+    \PYG{k}{def} \PYG{n+nf}{print\PYGZus{}tree}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{tabs}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{):}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{parent}\PYG{p}{:}
+            \PYG{n}{string} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{tabs}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}val}\PYG{p}{:}
+                \PYG{n}{string} \PYG{o}{+=} \PYG{l+s+s2}{\PYGZdq{}  \PYGZdq{}} \PYG{o}{*} \PYG{n}{tabs} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}val}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}index} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+                \PYG{n}{string} \PYG{o}{+=} \PYG{l+s+s2}{\PYGZdq{} (}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{) }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}index}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{ig}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{))}
+            \PYG{k}{elif} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{leaf\PYGZus{}val} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+                \PYG{n}{string} \PYG{o}{+=} \PYG{l+s+s2}{\PYGZdq{} (}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{leaf\PYGZus{}val}\PYG{p}{)}
+            \PYG{k}{else}\PYG{p}{:}
+                \PYG{n}{string} \PYG{o}{+=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{string} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Depth:Node}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{ :Root: (}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{)}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{tabs}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{feature\PYGZus{}index}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{p}{:}
+            \PYG{n}{string} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{o}{.}\PYG{n}{print\PYGZus{}tree}\PYG{p}{(}\PYG{n}{tabs} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{p}{:}
+            \PYG{n}{string} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{o}{.}\PYG{n}{print\PYGZus{}tree}\PYG{p}{(}\PYG{n}{tabs} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{p}{:}
+            \PYG{n}{string} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{.}\PYG{n}{print\PYGZus{}tree}\PYG{p}{(}\PYG{n}{tabs} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{string}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}node\PYGZus{}count}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n}{count} \PYG{o}{=} \PYG{l+m+mi}{1}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{p}{:}
+            \PYG{n}{count} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{x}\PYG{o}{.}\PYG{n}{get\PYGZus{}node\PYGZus{}count}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{p}{:}
+            \PYG{n}{count} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{o}\PYG{o}{.}\PYG{n}{get\PYGZus{}node\PYGZus{}count}\PYG{p}{()}
+        \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{p}{:}
+            \PYG{n}{count} \PYG{o}{+=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{.}\PYG{n}{get\PYGZus{}node\PYGZus{}count}\PYG{p}{()}
+        \PYG{k}{return} \PYG{n}{count}
+
+    \PYG{k}{def} \PYG{n+nf}{score}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)} \PYG{o}{==} \PYG{n}{y}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf}{get\PYGZus{}confusion\PYGZus{}matrix}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+        \PYG{n}{pred} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{X}\PYG{p}{),} \PYG{n}{dtype}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{int32}\PYG{p}{)}
+        \PYG{n}{actual} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{copy}\PYG{p}{(}\PYG{n}{y}\PYG{p}{),} \PYG{n}{dtype}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{int32}\PYG{p}{)}
+        \PYG{n}{conf} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{))}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{pred}\PYG{p}{)):}
+            \PYG{n}{conf}\PYG{p}{[}\PYG{n}{pred}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{actual}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{k}{return} \PYG{n}{conf}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}str\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{print\PYGZus{}tree}\PYG{p}{()}
+
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}data}\PYG{p}{():}
+    \PYG{n}{X}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{p}{[],} \PYG{p}{[]}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}tic\PYGZhy{}tac\PYGZhy{}toe.data\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}r\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+        \PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n}{f}\PYG{o}{.}\PYG{n}{readlines}\PYG{p}{():}
+            \PYG{n}{split} \PYG{o}{=} \PYG{n}{line}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{},\PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{y}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{split}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{rstrip}\PYG{p}{()} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}positive\PYGZdq{}}\PYG{p}{)}
+            \PYG{n}{X}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{split}\PYG{p}{[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{n}{X} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+    \PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}
+
+
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}train\PYGZus{}test\PYGZus{}split}\PYG{p}{(}\PYG{n}{split} \PYG{o}{=} \PYG{l+m+mf}{0.5}\PYG{p}{):}
+    \PYG{k}{assert} \PYG{l+m+mf}{0.1} \PYG{o}{\PYGZlt{}=} \PYG{n}{split} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mf}{0.9}
+    \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{get\PYGZus{}data}\PYG{p}{()}
+    \PYG{n}{combined} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{))}
+    \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{combined}\PYG{p}{)}
+    \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{o}{*}\PYG{n}{combined}\PYG{p}{)}
+    \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+    \PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{split} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{y}\PYG{p}{))}
+    \PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{x\PYGZus{}test} \PYG{o}{=} \PYG{n}{x}\PYG{p}{[:}\PYG{n}{n}\PYG{p}{],} \PYG{n}{x}\PYG{p}{[}\PYG{n}{n}\PYG{p}{:]}
+    \PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n}{y}\PYG{p}{[:}\PYG{n}{n}\PYG{p}{],} \PYG{n}{y}\PYG{p}{[}\PYG{n}{n}\PYG{p}{:]}
+    \PYG{k}{return} \PYG{n}{x\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{x\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}
+
+\PYG{k}{def} \PYG{n+nf}{remove\PYGZus{}nan}\PYG{p}{(}\PYG{n}{x}\PYG{p}{):}
+    \PYG{n}{x}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{==} \PYG{n}{np}\PYG{o}{.}\PYG{n}{inf}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{n}{val} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{nan\PYGZus{}to\PYGZus{}num}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{nan}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{val}
+
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}information\PYGZus{}gain}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Assume y is a boolean array}
+\PYG{l+s+sd}{    Throws several runtime warnings about zero division and NANs,}
+\PYG{l+s+sd}{    but these are handled in remove\PYGZus{}nan}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}
+    \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}
+    \PYG{n}{attrs} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{]}
+    \PYG{n}{y\PYGZus{}block} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n}{y}\PYG{o}{.}\PYG{n}{tolist}\PYG{p}{()]} \PYG{o}{*} \PYG{n}{x}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{.}\PYG{n}{T}
+    \PYG{n}{y\PYGZus{}mean} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+    \PYG{n}{y\PYGZus{}entropy} \PYG{o}{=} \PYG{n}{remove\PYGZus{}nan}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{y\PYGZus{}mean} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{y\PYGZus{}mean}\PYG{p}{)} \PYG{o}{+} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}mean}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}mean}\PYG{p}{))]))}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+    \PYG{n}{weighted} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{x}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{])}
+    \PYG{k}{for} \PYG{n}{attr} \PYG{o+ow}{in} \PYG{n}{attrs}\PYG{p}{:}
+        \PYG{n}{attr\PYGZus{}total} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{x} \PYG{o}{==} \PYG{n}{attr}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+        \PYG{n}{frac} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{((}\PYG{n}{x} \PYG{o}{==} \PYG{n}{attr}\PYG{p}{)} \PYG{o}{*} \PYG{n}{y\PYGZus{}block}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{o}{/} \PYG{n}{attr\PYGZus{}total}
+        \PYG{n}{entr\PYGZus{}left} \PYG{o}{=} \PYG{n}{remove\PYGZus{}nan}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{frac} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{n}{frac}\PYG{p}{))}
+        \PYG{n}{entr\PYGZus{}right} \PYG{o}{=} \PYG{n}{remove\PYGZus{}nan}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{frac}\PYG{p}{)} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{frac}\PYG{p}{))}
+        \PYG{n}{weighted} \PYG{o}{+=} \PYG{n}{attr\PYGZus{}total} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{p}{(}\PYG{n}{entr\PYGZus{}left} \PYG{o}{+} \PYG{n}{entr\PYGZus{}right}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{y\PYGZus{}entropy} \PYG{o}{\PYGZhy{}} \PYG{n}{weighted}
+
+\PYG{k}{def} \PYG{n+nf}{build\PYGZus{}tree}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{mode}\PYG{p}{:} \PYG{n+nb}{bool}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{k+kc}{None}\PYG{p}{):}
+    \PYG{n}{y\PYGZus{}mean} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{y\PYGZus{}mean} \PYG{o}{==} \PYG{l+m+mi}{1} \PYG{o+ow}{or} \PYG{n}{y\PYGZus{}mean} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{n}{node} \PYG{o}{=} \PYG{n}{Node}\PYG{p}{(}\PYG{n}{leaf\PYGZus{}val}\PYG{o}{=}\PYG{n+nb}{bool}\PYG{p}{(}\PYG{n}{y\PYGZus{}mean}\PYG{p}{),} \PYG{n}{parent}\PYG{o}{=}\PYG{n}{parent}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{n}{feature\PYGZus{}val}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{node}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n}{Node}\PYG{p}{(}\PYG{n}{leaf\PYGZus{}val}\PYG{o}{=}\PYG{n}{mode}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{n}{parent}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{n}{feature\PYGZus{}val}\PYG{p}{)}
+    \PYG{n}{ig} \PYG{o}{=} \PYG{n}{get\PYGZus{}information\PYGZus{}gain}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+    \PYG{n}{index} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmax}\PYG{p}{(}\PYG{n}{ig}\PYG{p}{)}
+    \PYG{n}{max\PYGZus{}ig} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ig}\PYG{p}{)}
+    \PYG{n}{node} \PYG{o}{=} \PYG{n}{Node}\PYG{p}{(}\PYG{n}{ig}\PYG{o}{=}\PYG{n}{max\PYGZus{}ig}\PYG{p}{,} \PYG{n}{feature\PYGZus{}index}\PYG{o}{=}\PYG{n}{index}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{n}{parent}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{n}{feature\PYGZus{}val}\PYG{p}{)}
+    \PYG{n}{x\PYGZus{}rows} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[:,} \PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{o\PYGZus{}rows} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[:,} \PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{b\PYGZus{}rows} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{where}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[:,} \PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{)[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{n}{node}\PYG{o}{.}\PYG{n}{x} \PYG{o}{=} \PYG{n}{build\PYGZus{}tree}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{x\PYGZus{}rows}\PYG{p}{],} \PYG{n}{y}\PYG{p}{[}\PYG{n}{x\PYGZus{}rows}\PYG{p}{],} \PYG{n}{mode}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{n}{node}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}x\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{node}\PYG{o}{.}\PYG{n}{o} \PYG{o}{=} \PYG{n}{build\PYGZus{}tree}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{o\PYGZus{}rows}\PYG{p}{],} \PYG{n}{y}\PYG{p}{[}\PYG{n}{o\PYGZus{}rows}\PYG{p}{],} \PYG{n}{mode}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{n}{node}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}o\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{node}\PYG{o}{.}\PYG{n}{b} \PYG{o}{=} \PYG{n}{build\PYGZus{}tree}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{n}{b\PYGZus{}rows}\PYG{p}{],} \PYG{n}{y}\PYG{p}{[}\PYG{n}{b\PYGZus{}rows}\PYG{p}{],} \PYG{n}{mode}\PYG{p}{,} \PYG{n}{parent}\PYG{o}{=}\PYG{n}{node}\PYG{p}{,} \PYG{n}{feature\PYGZus{}val}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}b\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{node}
+
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}stats\PYGZus{}str}\PYG{p}{(}\PYG{n}{array}\PYG{p}{):}
+    \PYG{n}{mean} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{array}\PYG{p}{)}
+    \PYG{n}{std} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{n}{array}\PYG{p}{)}
+    \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}Mean: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{  SD: }\PYG{l+s+si}{\PYGZpc{}.3f}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{mean}\PYG{p}{,} \PYG{n}{std}\PYG{p}{)}
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{accuracies} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{conf\PYGZus{}matrices} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{node\PYGZus{}counts} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{n}{depths} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{):}
+        \PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{X\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n}{get\PYGZus{}train\PYGZus{}test\PYGZus{}split}\PYG{p}{()}
+        \PYG{n}{mode} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{y\PYGZus{}train}\PYG{p}{)} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mf}{0.5}
+        \PYG{n}{root} \PYG{o}{=} \PYG{n}{build\PYGZus{}tree}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{,} \PYG{n}{mode}\PYG{p}{,} \PYG{k+kc}{None}\PYG{p}{)}
+        \PYG{n}{pred} \PYG{o}{=} \PYG{n}{root}\PYG{o}{.}\PYG{n}{predict}\PYG{p}{(}\PYG{n}{X\PYGZus{}test}\PYG{p}{)}
+        \PYG{n}{accuracies}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{root}\PYG{o}{.}\PYG{n}{score}\PYG{p}{(}\PYG{n}{X\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}\PYG{p}{))}
+        \PYG{n}{conf\PYGZus{}matrices}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{root}\PYG{o}{.}\PYG{n}{get\PYGZus{}confusion\PYGZus{}matrix}\PYG{p}{(}\PYG{n}{X\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}\PYG{p}{))}
+        \PYG{n}{node\PYGZus{}counts}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{root}\PYG{o}{.}\PYG{n}{get\PYGZus{}node\PYGZus{}count}\PYG{p}{())}
+        \PYG{n}{depths}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{root}\PYG{o}{.}\PYG{n}{get\PYGZus{}max\PYGZus{}depth}\PYG{p}{())}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Accuracy: }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{get\PYGZus{}stats\PYGZus{}str}\PYG{p}{(}\PYG{n}{accuracies}\PYG{p}{)))}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Node Count: }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{get\PYGZus{}stats\PYGZus{}str}\PYG{p}{(}\PYG{n}{node\PYGZus{}counts}\PYG{p}{)))}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Max Depth: }\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{get\PYGZus{}stats\PYGZus{}str}\PYG{p}{(}\PYG{n}{depths}\PYG{p}{)))}
+    \PYG{n}{avg\PYGZus{}conf} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{conf\PYGZus{}matrices}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{conf\PYGZus{}matrices}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{avg\PYGZus{}conf}\PYG{p}{)}
+\end{Verbatim}

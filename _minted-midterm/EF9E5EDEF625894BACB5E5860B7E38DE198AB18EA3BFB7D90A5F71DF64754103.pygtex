@@ -1,0 +1,70 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{seed}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{shuffle}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+    \PYG{n}{c} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{))}
+    \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}
+    \PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{o}{*}\PYG{n}{c}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}
+
+\PYG{k}{class} \PYG{n+nc}{SLPerceptron}\PYG{p}{:}
+    \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    Create a perceptron with a weight vector the same length}
+\PYG{l+s+sd}{    as the feature vectors and a single bias. The weights and}
+\PYG{l+s+sd}{    biases are initialized with random gaussian deviates.}
+
+\PYG{l+s+sd}{    Constructor Params:}
+\PYG{l+s+sd}{        input\PYGZus{}len: number of features per input vector}
+\PYG{l+s+sd}{        max\PYGZus{}iter: training iterations}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{input\PYGZus{}len}\PYG{p}{,} \PYG{n}{max\PYGZus{}iter} \PYG{o}{=} \PYG{l+m+mi}{100}\PYG{p}{):}
+        \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{input\PYGZus{}len}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n+nb}{int} \PYG{o+ow}{and} \PYG{n}{input\PYGZus{}len} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}
+        \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{max\PYGZus{}iter}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n+nb}{int} \PYG{o+ow}{and} \PYG{n}{max\PYGZus{}iter} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{0}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{max\PYGZus{}iter} \PYG{o}{=} \PYG{n}{max\PYGZus{}iter}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{normal}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{input\PYGZus{}len}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{normal}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{k}{def} \PYG{n+nf}{train}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        The algorithm from the textbook}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{max\PYGZus{}iter}\PYG{p}{):}
+            \PYG{n}{X}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+            \PYG{k}{for} \PYG{n}{j}\PYG{p}{,} \PYG{n}{vector} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{X}\PYG{p}{):}
+                \PYG{n}{res} \PYG{o}{=} \PYG{n}{vector}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{p}{)} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases}
+                \PYG{n}{prod} \PYG{o}{=} \PYG{n}{res} \PYG{o}{*} \PYG{n}{y}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+                \PYG{k}{if} \PYG{n}{prod} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mi}{0}\PYG{p}{:}
+                    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights} \PYG{o}{+=} \PYG{n}{y}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{*} \PYG{n}{vector}
+                    \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases} \PYG{o}{+=} \PYG{n}{y}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+    \PYG{k}{def} \PYG{n+nf}{test}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):}
+        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        Return the accuracy of the model against y}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}
+        \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sign}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{p}{)} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases}\PYG{p}{)} \PYG{o}{==} \PYG{n}{y}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}call\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{):}
+        \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{        This class can be called as a function of the input}
+\PYG{l+s+sd}{        vector x}
+\PYG{l+s+sd}{        \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+        \PYG{k}{assert} \PYG{n+nb}{type}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o+ow}{is} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}
+        \PYG{k}{assert} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{x}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}
+        \PYG{k}{assert} \PYG{n}{x}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{==} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{n}{res} \PYG{o}{=} \PYG{n}{x}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{p}{)} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases}
+        \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sign}\PYG{p}{(}\PYG{n}{res}\PYG{p}{)}
+
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}str\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+        \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{p}{)}
+        \PYG{n}{perc\PYGZus{}string} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{*x\PYGZus{}}\PYG{l+s+si}{\PYGZob{}\PYGZcb{}}\PYG{l+s+s2}{ + \PYGZdq{}} \PYG{o}{*} \PYG{n}{n}
+        \PYG{n}{w} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weights}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n}{b} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{biases}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{n}{args} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([[}\PYG{n}{w}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)])}\PYG{o}{.}\PYG{n}{flatten}\PYG{p}{())}
+        \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{args}\PYG{p}{),} \PYG{l+m+mi}{2}\PYG{p}{):}
+            \PYG{n}{args}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{args}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{args}\PYG{p}{)}
+        \PYG{k}{return} \PYG{n}{perc\PYGZus{}string}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{o}{*}\PYG{n}{args}\PYG{p}{)} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{))} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} = 0\PYGZdq{}}
+\end{Verbatim}

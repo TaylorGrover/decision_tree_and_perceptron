@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Perceptron}\PYG{p}{:} \PYG{l+m+mf}{2.62}\PYG{o}{*}\PYG{n}{x\PYGZus{}0} \PYG{o}{+} \PYG{l+m+mf}{4.69}\PYG{o}{*}\PYG{n}{x\PYGZus{}1} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{8.63}\PYG{o}{*}\PYG{n}{x\PYGZus{}2} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{3.97}\PYG{o}{*}\PYG{n}{x\PYGZus{}3} \PYG{o}{+} \PYG{l+m+mf}{1.87} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{Accuracy}\PYG{p}{:} \PYG{l+m+mf}{1.0}
+
+\PYG{n}{Perceptron}\PYG{p}{:} \PYG{l+m+mf}{3.42}\PYG{o}{*}\PYG{n}{x\PYGZus{}0} \PYG{o}{+} \PYG{l+m+mf}{6.09}\PYG{o}{*}\PYG{n}{x\PYGZus{}1} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{12.83}\PYG{o}{*}\PYG{n}{x\PYGZus{}2} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{6.17}\PYG{o}{*}\PYG{n}{x\PYGZus{}3} \PYG{o}{+} \PYG{l+m+mf}{1.87} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{Accuracy}\PYG{p}{:} \PYG{l+m+mf}{1.0}
+
+\PYG{n}{Perceptron}\PYG{p}{:} \PYG{l+m+mf}{0.92}\PYG{o}{*}\PYG{n}{x\PYGZus{}0} \PYG{o}{+} \PYG{l+m+mf}{0.39}\PYG{o}{*}\PYG{n}{x\PYGZus{}1} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{2.73}\PYG{o}{*}\PYG{n}{x\PYGZus{}2} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.97}\PYG{o}{*}\PYG{n}{x\PYGZus{}3} \PYG{o}{+} \PYG{l+m+mf}{0.87} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{Accuracy}\PYG{p}{:} \PYG{l+m+mf}{1.0}
+
+\PYG{n}{Perceptron}\PYG{p}{:} \PYG{l+m+mf}{1.32}\PYG{o}{*}\PYG{n}{x\PYGZus{}0} \PYG{o}{+} \PYG{l+m+mf}{0.29}\PYG{o}{*}\PYG{n}{x\PYGZus{}1} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{3.03}\PYG{o}{*}\PYG{n}{x\PYGZus{}2} \PYG{o}{+} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.87}\PYG{o}{*}\PYG{n}{x\PYGZus{}3} \PYG{o}{+} \PYG{l+m+mf}{0.87} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{Accuracy}\PYG{p}{:} \PYG{l+m+mf}{1.0}
+\end{Verbatim}

@@ -1,0 +1,217 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Depth}\PYG{p}{:}\PYG{n}{Node}
+\PYG{l+m+mi}{0} \PYG{p}{:}\PYG{n}{Root}\PYG{p}{:} \PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}
+\PYG{l+m+mi}{1}  \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.038}
+\PYG{l+m+mi}{2}    \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{l+m+mf}{0.263}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{l+m+mf}{0.101}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.582}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.5}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{7}              \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.42}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{l+m+mf}{0.252}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{7}              \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.306}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{2}    \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{l+m+mf}{0.087}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.344}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.996}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.742}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{l+m+mf}{0.3}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{l+m+mf}{0.5}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{7}              \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.353}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.306}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.811}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{2}    \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{l+m+mf}{0.082}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{l+m+mf}{0.13}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.179}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.503}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.722}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{1}  \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{l+m+mf}{0.037}
+\PYG{l+m+mi}{2}    \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{l+m+mf}{0.091}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{0.395}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.552}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.126}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{7}              \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{7}              \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{7}              \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.348}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.971}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.533}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.664}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.459}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{2}    \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.316}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{0.4}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.467}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{l+m+mf}{0.585}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{2}    \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.311}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.207}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)} \PYG{l+m+mf}{0.317}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{l+m+mf}{0.556}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.544}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.306}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{1}  \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{7}\PYG{p}{)} \PYG{l+m+mf}{0.104}
+\PYG{l+m+mi}{2}    \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.178}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{l+m+mf}{0.504}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.47}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{6}            \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{6}            \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.446}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{l+m+mf}{0.918}
+\PYG{l+m+mi}{5}          \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{5}          \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{l+m+mf}{0.722}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{2}    \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{8}\PYG{p}{)} \PYG{l+m+mf}{0.306}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{6}\PYG{p}{)} \PYG{l+m+mf}{1.0}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{2}    \PYG{n}{b} \PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{l+m+mf}{0.38}
+\PYG{l+m+mi}{3}      \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{o} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{l+m+mf}{0.971}
+\PYG{l+m+mi}{4}        \PYG{n}{x} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{o} \PYG{p}{(}\PYG{k+kc}{False}\PYG{p}{)}
+\PYG{l+m+mi}{4}        \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{l+m+mi}{3}      \PYG{n}{b} \PYG{p}{(}\PYG{k+kc}{True}\PYG{p}{)}
+\end{Verbatim}
